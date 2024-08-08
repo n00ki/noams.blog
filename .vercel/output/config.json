@@ -1,0 +1,93 @@
+{
+	"version": 3,
+	"routes": [
+		{
+			"src": "/who-cares",
+			"dest": "/who-cares/"
+		},
+		{
+			"src": "/who-cares/",
+			"status": 308,
+			"headers": {
+				"Location": "/who-cares"
+			}
+		},
+		{
+			"src": "/focus-and-drive",
+			"dest": "/focus-and-drive/"
+		},
+		{
+			"src": "/focus-and-drive/",
+			"status": 308,
+			"headers": {
+				"Location": "/focus-and-drive"
+			}
+		},
+		{
+			"src": "/bs",
+			"dest": "/bs/"
+		},
+		{
+			"src": "/bs/",
+			"status": 308,
+			"headers": {
+				"Location": "/bs"
+			}
+		},
+		{
+			"src": "/dont-feed-the-lizard",
+			"dest": "/dont-feed-the-lizard/"
+		},
+		{
+			"src": "/dont-feed-the-lizard/",
+			"status": 308,
+			"headers": {
+				"Location": "/dont-feed-the-lizard"
+			}
+		},
+		{
+			"src": "/this-blog-is-a-commitment",
+			"dest": "/this-blog-is-a-commitment/"
+		},
+		{
+			"src": "/this-blog-is-a-commitment/",
+			"status": 308,
+			"headers": {
+				"Location": "/this-blog-is-a-commitment"
+			}
+		},
+		{
+			"src": "/_app/immutable/.+",
+			"headers": {
+				"cache-control": "public, immutable, max-age=31536000"
+			}
+		},
+		{
+			"handle": "filesystem"
+		},
+		{
+			"src": "/.*",
+			"dest": "/fn"
+		}
+	],
+	"overrides": {
+		"index.html": {
+			"path": ""
+		},
+		"who-cares.html": {
+			"path": "who-cares"
+		},
+		"focus-and-drive.html": {
+			"path": "focus-and-drive"
+		},
+		"bs.html": {
+			"path": "bs"
+		},
+		"dont-feed-the-lizard.html": {
+			"path": "dont-feed-the-lizard"
+		},
+		"this-blog-is-a-commitment.html": {
+			"path": "this-blog-is-a-commitment"
+		}
+	}
+}

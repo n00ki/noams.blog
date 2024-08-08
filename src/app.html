@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="he" class="%theme%">
+<html lang="he">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 
-    <link rel="icon" href="%sveltekit.assets%/favicon.png" />
+    <link rel="icon" href="%sveltekit.assets%/favicon.ico" />
     <link rel="preload" href="%sveltekit.assets%/fonts/Rubik-VariableFont.ttf" as="font" type="font/ttf" crossorigin />
     <link
       rel="preload"
@@ -17,7 +17,12 @@
 
     <script type="module">
       const theme = localStorage.getItem('theme');
-      theme ? document.documentElement.setAttribute('class', theme) : localStorage.setItem('theme', 'dark');
+      if (theme) {
+        document.documentElement.setAttribute('class', theme);
+      } else {
+        document.documentElement.setAttribute('class', 'dark');
+        localStorage.setItem('theme', 'dark');
+      }
     </script>
 
     %sveltekit.head%
