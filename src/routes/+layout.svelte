@@ -28,7 +28,7 @@
 
 <SEO {...$page.data.metadata} url={$page.url.href} />
 
-<main class="container mx-auto flex min-h-screen flex-col p-4 md:px-8 md:py-4">
+<main class="container mx-auto flex flex-col p-4 md:px-8 md:py-4">
   <Transition url={data.url}>
     <slot />
   </Transition>

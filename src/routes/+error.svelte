@@ -3,11 +3,11 @@
   import { page } from '$app/stores';
 </script>
 
-<div class="flex h-screen flex-col items-center justify-center">
+<div class="flex h-screen flex-col items-center justify-center text-center">
   <h1 class="mb-2 text-4xl font-bold md:text-6xl">
     {$page.status}
   </h1>
-  <h2 class="mb-2 text-xl font-medium md:text-2xl">
+  <h2 class="mb-2 text-lg font-medium md:text-2xl">
     {$page.error?.message}
   </h2>
   <p>
