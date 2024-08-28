@@ -1,8 +1,8 @@
 import fs from 'fs-extra';
 import path from 'path';
 
-const USER = process.env.USER || process.env.USERNAME; // Works on both Unix and Windows
-const DROPBOX_DIR = path.join('/Users', USER || '', 'Library/CloudStorage/Dropbox/Documents/Blog');
+const USER = process.env.USER || process.env.USERNAME;
+const DROPBOX_DIR = path.join('/Users', USER || '', 'Library/CloudStorage/Dropbox/Documents/Notebook/Blog');
 
 const ASTRO_CONTENT_DIR = path.join(process.cwd(), 'src', 'posts');
 
