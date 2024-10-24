@@ -1,14 +1,14 @@
 <ul class="bubbles -z-50">
-  <li />
-  <li />
-  <li />
-  <li />
-  <li />
-  <li />
-  <li />
-  <li />
-  <li />
-  <li />
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
 </ul>
 
 <style>

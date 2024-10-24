@@ -5,7 +5,7 @@
   // Assets
   import image from '$lib/assets/noam.webp';
 
-  export let data;
+  let { data } = $props();
 </script>
 
 <section class="flex w-full justify-end">
@@ -25,6 +25,6 @@
     dir="auto"
     class="font-rubik prose mx-auto py-2 text-foreground lg:prose-xl prose-headings:text-primary/80 prose-a:text-brand-primary hover:prose-a:text-brand-secondary prose-blockquote:rounded-md prose-blockquote:bg-background/70 prose-blockquote:p-2 prose-blockquote:text-center prose-blockquote:font-extralight prose-blockquote:text-foreground/80 prose-strong:font-medium prose-strong:text-foreground"
   >
-    <svelte:component this={data.content} />
+    <data.content />
   </div>
 </article>

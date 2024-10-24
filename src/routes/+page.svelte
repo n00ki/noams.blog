@@ -10,9 +10,9 @@
   // Assets
   import image from '$lib/assets/noam.webp';
 
-  export let data;
+  let { data } = $props();
 
-  let isHeroVisible = true;
+  let isHeroVisible = $state(true);
   const inViewOptions: Options = { threshold: 0.1 };
 
   function handleHeroSectionEnter() {
@@ -35,8 +35,8 @@
 
 <section
   use:inview={inViewOptions}
-  on:inview_enter={handleHeroSectionEnter}
-  on:inview_leave={handleHeroSectionLeave}
+  oninview_enter={handleHeroSectionEnter}
+  oninview_leave={handleHeroSectionLeave}
   class="mt-28 flex flex-col items-center justify-center text-center"
 >
   <picture>

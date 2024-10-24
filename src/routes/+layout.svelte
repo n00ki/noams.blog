@@ -3,7 +3,8 @@
   import { page } from '$app/stores';
 
   // Utils
-  import { onNavigate, disableScrollHandling } from '$app/navigation';
+  import { browser } from '$app/environment';
+  import { ModeWatcher } from 'mode-watcher';
 
   // Components
   import SEO from '$components/SEO.svelte';
@@ -13,24 +14,18 @@
   // Styles
   import '../styles/app.css';
 
-  export let data;
-
-  // Disable scroll handling on same route navigation for theme switching
-  onNavigate((navigation) => {
-    const previousRoute = navigation.from?.url.pathname;
-    const currentRoute = navigation.to?.url.pathname;
-
-    if (previousRoute === currentRoute) {
-      disableScrollHandling();
-    }
-  });
+  let { data, children } = $props();
 </script>
 
 <SEO {...$page.data.metadata} url={$page.url.href} />
 
+{#if browser}
+  <ModeWatcher />
+{/if}
+
 <main class="container mx-auto flex flex-col p-4 md:px-8 md:py-4">
   <Transition url={data.url}>
-    <slot />
+    {@render children?.()}
   </Transition>
 
   <div class="fixed bottom-5 right-5">

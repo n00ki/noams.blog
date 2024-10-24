@@ -4,12 +4,12 @@ import path from 'path';
 const USER = process.env.USER || process.env.USERNAME;
 const DROPBOX_DIR = path.join('/Users', USER || '', 'Library/CloudStorage/Dropbox/Documents/Notebook/Blog');
 
-const ASTRO_CONTENT_DIR = path.join(process.cwd(), 'src', 'posts');
+const CONTENT_DIR = path.join(process.cwd(), 'src', 'posts');
 
 async function syncContent() {
   try {
-    // Ensure the Astro content directory exists
-    await fs.ensureDir(ASTRO_CONTENT_DIR);
+    // Ensure the content directory exists
+    await fs.ensureDir(CONTENT_DIR);
 
     // Read the contents of the Dropbox directory
     const sourcePosts = await fs.readdir(DROPBOX_DIR);
@@ -22,14 +22,14 @@ async function syncContent() {
       return;
     }
 
-    // Read the contents of the Astro content directory
-    const existingPosts = await fs.readdir(ASTRO_CONTENT_DIR);
+    // Read the contents of the content directory
+    const existingPosts = await fs.readdir(CONTENT_DIR);
 
     // Determine which posts need to be copied or updated
     const postsToCopy = await Promise.all(
       mdPosts.map(async (post) => {
         const srcPath = path.join(DROPBOX_DIR, post);
-        const destPath = path.join(ASTRO_CONTENT_DIR, post);
+        const destPath = path.join(CONTENT_DIR, post);
 
         if (!existingPosts.includes(post)) {
           return { srcPath, destPath, copy: true };

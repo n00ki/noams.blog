@@ -2,15 +2,21 @@
   // Env Variables
   import { PUBLIC_BASE_URL } from '$env/static/public';
 
-  export let title: string;
-  export let url: string;
+  interface Props {
+    title?: string;
+    url?: string;
+  }
+
+  let { title, url }: Props = $props();
 
   const description = 'Life Enthusiast on an Entrepreneurial Journey';
   const wideImage = 'https://res.cloudinary.com/nshemesh/image/upload/v1702973829/noams.blog/meta_wide.png';
   const squareImage = 'https://res.cloudinary.com/nshemesh/image/upload/v1702973829/noams.blog/meta_square.png';
 
-  $: title = title ? `${title} | הבלוג של נעם` : 'הבלוג של נעם';
-  $: url = url ?? PUBLIC_BASE_URL;
+  $effect(() => {
+    title = title ? `${title} | הבלוג של נעם` : 'הבלוג של נעם';
+    url = url ?? PUBLIC_BASE_URL;
+  });
 </script>
 
 <svelte:head>
