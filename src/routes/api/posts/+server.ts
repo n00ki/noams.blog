@@ -13,7 +13,9 @@ async function getPosts() {
     if (file && typeof file === 'object' && 'metadata' in file && slug) {
       const metadata = file.metadata as Omit<Post, 'slug'>;
       const post = { ...metadata, slug } satisfies Post;
-      post.published && posts.push(post);
+      if (post.published) {
+        posts.push(post);
+      }
     }
   }
 
@@ -22,7 +24,7 @@ async function getPosts() {
   return posts;
 }
 
-export const GET: RequestHandler = async (event) => {
+export const GET: RequestHandler = async () => {
   const posts = await getPosts();
   return json(posts);
 };

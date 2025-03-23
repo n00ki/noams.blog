@@ -12,6 +12,7 @@ export async function load({ params }) {
       }
     };
   } catch (e) {
+    console.error(e);
     throw error(404, `אופס! נראה שעדיין לא כתבתי את הפוסט הזה`);
   }
 }
